@@ -1,5 +1,5 @@
 # Nodejs_CRUD
 
-npm init
-npm install
-node server.js
+npm init <br>
+npm install <br>
+node server.js <br>
