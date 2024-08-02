@@ -11,7 +11,7 @@ app.use(express.static('./public'));
 const collectDefaultMetrics = client.collectDefaultMetrics;
 collectDefaultMetrics();
 
-const counter = new client.Counter({
+const counter = new client.Counter({ 
     name: 'type_counter',
     help: 'Any arbitrary value to help identify this counter',
 });
