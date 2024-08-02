@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const path = require('path');
+const { log } = require('console');
 require('dotenv').config();
 
 const app = express();
@@ -17,9 +18,9 @@ app.use(express.static('./public'));
 // Routes
 app.use('/api', userRoutes);
 
+const uri = process.env.MONGO_URI;
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {})
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error(err));
-
+ mongoose.connect(uri, {})
+  .then(() => console.log('Database connected successfully'))
+  .catch(err => console.error('Database connection error:', err));
 module.exports = app;
