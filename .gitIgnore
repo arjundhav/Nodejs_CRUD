@@ -1,5 +1,1 @@
-#Hide .env
-.env
-
-#Hide node_modules
-node_modules
+./env
