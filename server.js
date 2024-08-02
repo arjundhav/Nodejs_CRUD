@@ -5,6 +5,7 @@ const client = require('prom-client');
 
 // Define the port to listen on
 const PORT = process.env.PORT || 3000;
+app.use(express.static('./public'));
 
 // Prometheus Metrics
 const collectDefaultMetrics = client.collectDefaultMetrics;
@@ -97,7 +98,7 @@ app.use('/metrics', async (req, res) => {
 
 //Route to index.html for /
 app.get('/', (req, res) => {
-  res.sendFile('./public/index.html');
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 // Make the server listen on the specified port
